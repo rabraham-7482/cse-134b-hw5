@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Custom Dialogs</title>
+        <meta name="author" content="Rita Abraham">
+        <meta name="description" content="For buttons">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <button id="alert">Alert</button>
+        <!-- <dialog id="alert_dialog">
+            <p>Alert Pressed!</p>
+            <button>OK</button>
+        </dialog> -->
+        <button id="confirm">Confirm</button>
+        <!-- <dialog id="confirm_dialog">
+            <p>Do you confirm this?</p>
+            <button>Cancel</button>
+            <button>OK</button>
+        </dialog> -->
+        <button id="prompt">Prompt</button>
+        <!-- <dialog id="prompt_dialog">
+            <p>What is your name?</p>
+            <input type="text" name="name_input" />
+            <button>Cancel</button>
+            <button>OK</button>
+        </dialog> -->
+        <hr>
+        <output id="output"></output>
+        <!-- <div id="alert_div">
+            <button id="alert">Alert</button>
+        </div>
+        <div id="confirm_div">
+            <button id="confirm">Confirm</button>
+        </div>
+        <div id="prompt_div">
+            <button id="prompt">Prompt</button>
+        </div>
+        <hr>
+        <output id="output"></output> --> 
+    </body>
+    <!-- <script type="text/javascript" src="src/purify.js"></script> -->
+    <script type="text/javascript" src="./purify.js"></script>
+    <script type="module">
+        import {createDialog, showDialog, closeDialog, handleDialog} from './customdialog.js';
+        let alert_button = document.getElementById("alert");
+        let confirm_button = document.getElementById("confirm");
+        let prompt_button = document.getElementById("prompt");
+        let output = document.getElementById("output");
+        let innerHTML = `
+            <p>Alert Pressed!</p>
+             <button id="alert_ok_button">OK</button>
+        `;
+        createDialog("alert", innerHTML);
+        // let alert_dialog = document.getElementById("alert_dialog");
+        // let alert_ok_button = document.getElementById("alert_ok_button");
+        innerHTML = `
+            <p>Do you confirm this?</p>
+            <button id="confirm_cancel_button">Cancel</button>
+            <button id="confirm_ok_button">OK</button>
+        `;
+        createDialog("confirm", innerHTML);
+        // let confirm_dialog = document.getElementById("confirm_dialog");
+        // let confirm_cancel_button = document.getElementById("confirm_cancel_button");
+        // let confirm_ok_button = document.getElementById("confirm_ok_button");
+        innerHTML = `
+            <p>What is your name?</p>
+            <input type="text" name="name_input" id="name_input" default=""/>
+            <button id="prompt_cancel_button">Cancel</button>
+            <button id="prompt_ok_button">OK</button>
+        `;        
+        createDialog("prompt", innerHTML);
+        // let prompt_dialog = document.getElementById("prompt_dialog");
+        // let prompt_cancel_button = document.getElementById("prompt_cancel_button");
+        // let prompt_ok_button = document.getElementById("prompt_ok_button");
+        alert_button.addEventListener('click', (event) => {
+            showDialog(alert_dialog);
+            handleDialog("alert");
+        });
+        confirm_button.addEventListener('click', (event) => {
+            output.innerHTML = ``;
+            setTimeout(() => {
+                showDialog(confirm_dialog);
+                handleDialog("confirm");
+            }, 1);
+        });
+        prompt_button.addEventListener('click', (event) => {
+            output.innerHTML = ``;
+            setTimeout(() => {
+                showDialog(prompt_dialog);
+                handleDialog("prompt");
+            }, 1);
+            console.log("handled");
+        });
+
+        // let alert_button = document.getElementById("alert");
+        // let confirm_button = document.getElementById("confirm");
+        // let prompt_button = document.getElementById("prompt");
+        // createDialog('alert');
+        // let alert_dialog = document.getElementById("alert_dialog");
+        // let alert_ok_button = document.getElementById("alert_ok_button");
+        // createDialog('confirm');
+        // let confirm_dialog = document.getElementById("confirm_dialog");
+        // let confirm_cancel_button = document.getElementById("confirm_cancel_button");
+        // let confirm_ok_button = document.getElementById("confirm_ok_button");
+        // createDialog('prompt');
+        // let prompt_dialog = document.getElementById("prompt_dialog");
+        // let prompt_cancel_button = document.getElementById("prompt_cancel_button");
+        // let prompt_ok_button = document.getElementById("prompt_ok_button");
+        // let output = document.getElementById('output');
+        // alert_button.addEventListener('click', () => {
+        //     showDialog(alert_dialog);
+        // });
+        // alert_ok_button.addEventListener('click', () => {
+        //     closeDialog(alert_dialog);
+        // })
+        // confirm_button.addEventListener('click', () => {
+        //     showDialog(confirm_dialog);
+        // });
+        // confirm_cancel_button.addEventListener('click', () => {
+        //     closeDialog(confirm_dialog);
+        //     output.textContent = `Confirm result: false`;
+        // });
+        // confirm_ok_button.addEventListener('click', () => {
+        //     closeDialog(confirm_dialog);
+        //     output.textContent = `Confirm result: true`;
+        // });
+        // prompt_button.addEventListener('click', () => {
+        //     showDialog(prompt_dialog);
+        // });
+        // prompt_ok_button.addEventListener('click', () => {
+        //     let input_text = document.getElementById("name_input");
+        //     // let clean_text = DOMPurify.sanitize(input_text);
+        //     let clean_text = input_text.value;
+        //     if(clean_text == null || clean_text == ""){
+        //         clean_text = "User didn’t enter anything";
+        //     }
+        //     closeDialog(prompt_dialog);
+        //     output.textContent = `Prompt result: ${clean_text}`;
+        // })
+        // prompt_cancel_button.addEventListener('click', () => {
+        //     closeDialog(prompt_dialog);
+        //     output.textContent = `Prompt result: User didn’t enter anything`;
+        // });
+    </script>
+</html>

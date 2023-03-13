@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Rita's Personal Portfolio</title>
+        <meta name="author" content="Rita Abraham">
+        <meta name="description" content="Resume for Rita Abraham">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="./index.css">
+    </head>
+    <body>
+        <main>
+            <h1>Rita Abraham</h1>
+            <hr>
+            <nav>
+                <h2>
+                    <a id="flex_item" onclick='openSection("about_me")'>
+                        About Me
+                    </a>
+                </h2>
+                <h2>
+                    <a id="flex_item" onclick='openSection("education")'>
+                        Education
+                    </a>
+                </h2>
+                <h2>
+                    <a id="flex_item" onclick='openSection("experience")'>
+                        Experience
+                    </a>
+                </h2>
+                <h2>
+                    <a id="flex_item" onclick='openSection("extracirriculars")'>
+                        Extracirriculars
+                    </a>
+                </h2>
+                <h2>
+                    <a id="flex_item" onclick='openSection("goals")'>
+                        Goals
+                    </a>
+                </h2>
+                <h2>
+                    <a id="flex_item" onclick='openSection("contact_me")'>
+                        Contact Me
+                    </a>
+                </h2>
+                <h2>
+                    <a id="flex_item" onclick='openSection("fun_facts")'>
+                        Fun Facts
+                    </a>
+                </h2>
+            </nav>
+        </main>
+        <br>
+        <br>
+        <section id="about_me" hidden>
+            <button id="close_button" onclick='closeSection("about_me")'>X</button>
+            <header>
+                <h3>About Me</h3>
+            </header>
+            <p>
+                Hello! My name is Rita Abraham and I am a senior undergraduate at UC San Diego. I am a <strong>Bioinformatics</strong> major and <b>Computer Science</b> minor. Throughout my years at UC San Diego I have really grown as a student and understood my true passions and interests. I came into college with an interest inpursuing medicine. However, I qiuckly realized that I prefered the problem
+                solving and creativity that the software and technology field provided. I plan on graduating in <em>March 2023</em>.
+                <br>
+                Post graduation I am eager to get a full time job at a company where I can be a software engineer. I am open to working at manycompanies and would love to work ina collaborative environment where I can 
+                contribute to the company's overall goals and aspirations.
+            </p>
+        </section>
+        <br>
+        <br>
+        <section id="education" hidden>
+            <button id="close_button" onclick='closeSection("education")'>X</button>
+            <header>
+                <h3>Education</h3>
+            </header>
+            <button onclick="showTable('dougherty_table')">
+                <picture>
+                    <source type="image/jpg" srcset="./dougherty_logo.jpg">
+                    <source type="image/avif" srcset="./dougherty_logo.avif">
+                    <source type="image/webp" srcset="./dougherty_logo.webp">
+                    <img src="./dougherty_logo.png" alt="DVHS logo" height="200" width="200"/>
+                </picture>
+            </button>
+            <br>
+                <table id="dougherty_table" hidden>
+                    <caption><b>School Deatils</b></caption>
+                    <colgroup>
+                        <col span="2">
+                    </colgroup>
+                    <tr>
+                      <th>School</th>
+                      <td>Dougherty Valley High School</td>
+                    </tr>
+                    <tr>
+                      <th>Degree</th>
+                      <td>High School Diploma</td>
+                    </tr>
+                    <tr>
+                      <th>Graduation Date</th>
+                      <td>June 2019</td>
+                    </tr>
+                  </table>
+            <button onclick='showTable("ucsd_table")'>
+                <picture>
+                    <source type="image/jpg" srcset="./ucsd_logo.jpg">
+                    <source type="image/avif" srcset="./ucsd_logo.avif">
+                    <source type="image/webp" srcset="./ucsd_logo.webp">
+                    <img src="./ucsd_logo.png" alt="DVHS logo" height="200" width="200"/>
+                </picture>
+            </button>
+                <table id="ucsd_table" hidden>
+                    <caption><b>School Deatils</b></caption>
+                    <colgroup>
+                        <col span="2">
+                    </colgroup>
+                    <tr>
+                      <th>School</th>
+                      <td>University of California, San Diego</td>
+                    </tr>
+                    <tr>
+                      <th>Degree</th>
+                      <td>Bachelor's</td>
+                    </tr>
+                    <tr>
+                        <th>Major</th>
+                        <td>Bioinformatics</td>
+                    </tr>
+                    <tr>
+                        <th>Minor</th>
+                        <td>Computer Science</td>
+                    </tr>
+                    <tr>
+                      <th>Graduation Date</th>
+                      <td>March 2023</td>
+                    </tr>
+                  </table>
+        </section>
+        <br>
+        <br>
+        <section id="experience" hidden>
+            <button id="close_button" onclick='closeSection("experience")'>X</button>
+            <header>
+                <h3>Experience</h3>
+            </header>
+            <details>
+                <summary>
+                    Software Engineer Intern at DocuSign
+                </summary>
+                <span id="internship_duration_1"><i>June 2022 to September 2022</i></span>
+                <ul>
+                    <li>DocuSign aids in the management of electronic agreements</li>
+                    <li>Part of a 6 person team that manages Agreement Actions</li>
+                    <li>Participated in agile development and 2-week sprints</li>
+                    <li>Worked on the development, testing, and deployment of new features to Agreement Actions</li>
+                    <li>Helped resolve customer facing issues on the Agreement Action service</li>
+                </ul>
+            </details>
+            <details>
+                <summary>
+                    Data Engineer Intern at Deckard Technologies
+                </summary>
+                <span id="internship_duration_2"><i>June 2021 to September 2021</i></span>
+                <ul>
+                    <li>Software analytic company focused on detecting real estate anomalies for agencies</li>
+                    <li>Responsible for collecting and developing Python web scrapers for data sources to aid in property tax analysis</li>
+                    <li>Used python libraries like Selenium, BeautifulSoup, Requests</li>
+                    <li>Worked with AWS services (S3, CodePipeline, Batch, Athena) to deploy code</li>
+                    <li>Understood ETL processing and CI/CD pipelines</li>
+                </ul>
+            </details>
+            <h5>Skills</h5>
+            <ul>
+                <li>Java</li>
+                <li>Python</li>
+                <li>C</li>
+                <li>React</li>
+                <li>Agile Development</li>
+                <li>Git</li>
+                <li>GitHub</li>
+            </ul>
+        </section>
+        <br>
+        <br>
+        <section id="extracirriculars" hidden>
+            <button id="close_button" onclick='closeSection("extracirriculars")'>X</button>
+            <header>
+                <h3>Extracirriculars</h3>
+            </header>
+            <ul>
+                <li>
+                    UCSD Pushpanjali
+                </li>
+                <li>
+                    CSforeach
+                </li>
+                <li>
+                    Women In Computing
+                </li>
+            </ul>
+        </section>
+        <br>
+        <br>
+        <section id="goals" hidden>
+            <button id="close_button" onclick='closeSection("goals")'>X</button>
+            <header>
+                <h3>Goals</h3>
+            </header>
+            <ol>
+                <li>Graduate College</li>
+                <li>Learn Go</li>
+                <li>Master SQL</li>
+                <li>AWS Certification</li>
+            </ol>
+        </section>
+        <br>
+        <br>
+        <section id="contact_me" hidden>
+            <button id="close_button" onclick='closeSection("contact_me")'>X</button>
+            <header>
+                <h3>Contact Me</h3>
+            </header>
+            <form>
+                <div id="basic_details">
+                    <fieldset>
+                        <legend>Basic Info</legend>
+                        <label for="name">Name: </label>
+                        <input type="text" name="name" id="name" required>
+                        <br>
+                        <label for="email_id">Email: </label>
+                        <input type="text" name="email_id" id="email_id" required>
+                        <br>
+                        <label for="discovery">How Was This Page Found:</label>
+                        <input list="methods" name="discovery" id="discovery" required>
+                        <datalist id="methods">
+                            <option value="LinkedIn"></option>
+                            <option value="Application"></option>
+                            <option value="Google"></option>
+                        </datalist>
+                        <br>
+                        <label for="reason">Reason for Contact:</label>
+                        <select name="reason" id="reason">
+                            <optgroup label="Professional"></optgroup>
+                            <option>Potential Job</option>
+                            <option>Establish a Connection</option>
+                            <optgroup label="Non-Professional"></optgroup>
+                            <option>Friend</option>
+                            <option>Other</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <div id="message">
+                    <textarea placeholder="Please add a message" cols=50 rows=10 required></textarea>
+                </div>
+                <div id="submit">
+                    <input type="submit">
+                </div>
+            </form>
+        </section>
+        <br>
+        <br>
+        <section id="fun_facts" hidden>
+            <button id="close_button" onclick='closeSection("fun_facts")'>X</button>
+            <header>
+                <h3>Fun Facts</h3>
+            </header>
+            <h4>Favorite Animal</h4>
+            <p>
+Over quarantine, my family got a maltipoo named Milo. 
+He is two years old now and in my opinion is the cutest and sweetest dog ever. 
+He is very playful and always ready to go out and explore!
+            </p>
+            <figure>
+                <picture>
+                    <source type="image/png" srcset="./milo.png">
+                    <source type="image/avif" srcset="./milo.avif">
+                    <source type="image/webp" srcset="./milo.webp">
+                    <img src="./milo.jpg" alt="picture of pet Milo" width="100" height="180" loading="lazy">
+                </picture>
+                <figcaption>My pet Milo</figcaption>
+            </figure>
+            <video width="200" height="300" controls>
+                <source src="./milo_playing.mov" type="video/mov">
+                <source src="./milo_playing.mp4" type="video/mp4">
+                Your browser doesn't support the video tag.
+            </video>
+            <p>This is a video of Milo playing when he was a puppy.</p>
+            <h4>Favorite Song</h4>
+        </p>
+Recently I've been really liking music by SZA. 
+Her new album is one of the top albums I listen to now. 
+From the album, Low is my favorite.</p>
+            <audio controls>
+                <source src="./favorite_song.ogg" type="audio/ogg">
+                <source src="./favorite_song.mp3" type="audio/mp3">
+                Your browser doesn't support the audio tag.
+            </audio>
+            <h4>Favorite Website</h4>
+            <p>Youtube is the one place I can go for all kinds of content. The versitality of content is what makes it one of my favorite websites.</p>
+            <h4>Favorite Shape</h4>
+            <canvas id="shape" width="200" height="100">You browser does not support the canvas tag.</canvas>
+            <script>
+                var canvas = document.getElementById("shape");
+                var ctx = canvas.getContext("2d");
+                ctx.beginPath();
+                ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+                ctx.stroke();
+            </script>
+            <svg width="100" height="100">
+                <circle cx="50" cy="50" r="50"/>
+            </svg>
+            <h4>Favorite Language</h4>
+            <p>
+                I really enjoy uisng HTML. Some tags I have liked using are the <code>canvas</code> tag as well as the <code>details</code> and <code>summary</code> tags.
+            </p>
+            <aside>
+                <picture>
+                    <source type="image/png" srcset="./html_picture.png">
+                    <source type="image/avif" srcset="./html_picture.avif">
+                    <source type="image/webp" srcset="./html_picture.webp">
+                    <img src="./html_picture.jpg" alt="picture of HTML" width="100" height="50">
+                </picture>
+            </aside>
+        </section>
+        <br>
+        <br>
+        <footer>
+            <hr/>
+             <p>This page was made with &hearts; by Rita Abraham</p>
+        </footer>
+    </body>
+    <script>
+        let isOpen = false;
+        let dougherty_table_isopen = false;
+        let ucsd_table_isopen = false;
+        function openSection(section_id){
+            if(isOpen){
+                alert("Please close open section first!");
+            }
+            else{
+                let element = document.getElementById(section_id);
+                element.hidden = false;
+                isOpen = true;
+            }
+        }
+        function closeSection(section_id){
+            if(section_id === "education"){
+                let dougherty_table = document.getElementById("dougherty_table");
+                dougherty_table.hidden = true;
+                let ucsd_table = document.getElementById("ucsd_table");
+                ucsd_table.hidden = true;
+                dougherty_table_isopen = false;
+                ucsd_table_isopen = false;
+            }
+            let element = document.getElementById(section_id);
+            element.hidden = true;
+            isOpen = false;
+        }
+        function showTable(table_id){
+            let element = document.getElementById(table_id);
+            if(table_id === "dougherty_table"){
+                if(dougherty_table_isopen){
+                    element.hidden = true;
+                    dougherty_table_isopen = false;
+                }
+                else{
+                    element.hidden = false;
+                    dougherty_table_isopen = true;
+                }
+            }
+            else{
+                if(ucsd_table_isopen){
+                    element.hidden = true;
+                    ucsd_table_isopen = false;
+                }
+                else{
+                    element.hidden = false;
+                    ucsd_table_isopen = true;
+                }
+            }
+        }
+    </script>
+</html>

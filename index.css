@@ -1,0 +1,82 @@
+@media screen and (max-width: 414px) and (max-height: 896px) and (min-width: 360px) and (min-height: 640px) {
+    :root{
+        --background: #E9F5FB;
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 800px) and (max-height: 1280px) and (min-width: 601px) and (min-height: 962px) {
+    :root{
+        --background: #E9F5FB;
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 1080px) and (max-height: 1920px) and (min-width: 768px) and (min-height: 1024px) {
+    :root{
+        --background: #E9F5FB;
+        font-size: 25px;
+    }
+}
+@font-face {
+    font-family: "BebasNeue";
+    src: url('./BebasNeue-Regular.ttf');
+}
+body{
+    background-color: var(--background);
+}
+h1{
+    text-align: center;
+    font-family: 'BebasNeue', 'Inter', 'Sans-Serif';
+    font-weight: bold;
+}
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    gap: 0px;
+}
+h3{
+    text-align: center;
+}
+#flex_item{
+    font-family: 'BebasNeue', 'Inter', 'Sans-Serif';
+    line-height: 24px;
+    color: black;
+    animation-name: appear;
+    animation-duration: 5s;
+    transition: font-size 5s;
+}
+#flex_item:hover {
+    font-size: 2.0rem;
+}
+@keyframes appear {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+section{
+    position: absolute;
+    top: 15%;
+    right: 25%;
+    background-color: rgba(77, 160, 150, 0.33);
+    width: 50vw;
+    height: 75vh;
+    overflow: scroll;
+    align-items: center;
+}
+button{
+    background-color: transparent;
+    border: none;
+}
+button:active{
+    transform: scale(0.95);
+}
+#close_button {
+    position: relative;
+    left: 48vw;
+}

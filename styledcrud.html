@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CRUD App</title>
+        <meta name="author" content="Rita Abraham">
+        <meta name="description" content="crud application">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+        <!-- <script src="./styledblog.js"></script> -->
+    </head>
+    <body style="background-color: #eee5d3">
+        <section id="posts">
+            <h1>Posts</h1>
+            <hr>
+        </section>
+        <section id="adding_posts">
+            <button id="add_post_btn">Add Post</button>
+            <dialog id="add_post_dialog">
+                <label for="dialog_post_title">Post Title:</label>
+                <input type="text" id="dialog_post_title" name="dialog_post_title" value="">
+                <label for="dialog_post_description">Post Description:</label>
+                <textarea id="dialog_post_description" value=""></textarea>
+                <button id="dialog_cancel_button">Cancel</button>
+                <button id="dialog_submit_button">Save</button>
+            </dialog>
+            <dialog id="delete_post_dialog">
+                <p>Are you sure you want to delete post?</p>
+                <button id="dialog_cancel_delete_button">Cancel</button>
+                <button id="dialog_delete_button">Delete</button>
+            </dialog>
+        </section>
+    </body>
+    <script type="module">
+        import {init, editPost, deletePost} from './styledblog.js';
+        window.editPost = editPost;
+        window.deletePost = deletePost;
+        init();
+    </script>
+</html>
