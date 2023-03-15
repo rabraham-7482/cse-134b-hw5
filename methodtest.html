@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AJAX Practice</title>
+        <meta name="author" content="Rita Abraham">
+        <meta name="description" content="AJAX Practice for Rita Abraham">
+    </head>
+    <body>
+        <form style="display: flex; flex-direction: column; gap: 5px;">
+                <label for="id">Record ID:</label>
+                <input type="number" name="id" id="id" required>
+                <label for="article_name">Article Name</label>
+                <input type="text" name="article_name" id="article_name" required>
+                <label for="article_body">Article Body:</label>
+                <textarea id="article_body" placeholder="Please add a body" cols=50 rows=10 required></textarea>
+                <label for="current_date" hidden>Date:</label>
+                <input type="text" name="current_date" id="current_date" readonly hidden>
+        </form>
+        <button id="postBtn">POST</button>
+        <button id="getBtn">GET</button>
+        <button id="deleteBtn">DELETE</button>
+        <button id="putBtn">PUT</button>
+        <output id="result"></output>
+        <script>
+            let post_button = document.getElementById("postBtn");
+            let get_button = document.getElementById("getBtn");
+            let delete_button = document.getElementById("deleteBtn");
+            let put_button = document.getElementById("putBtn");
+            let id = document.getElementById("id");
+            let article_name = document.getElementById("article_name");
+            let article_body = document.getElementById("article_body");
+            let current_date = document.getElementById("current_date");
+            let output = document.getElementById("result");
+            post_button.addEventListener('click', () => {
+                current_date.value = new Date();
+                let json_obj = {
+                    articleTitle: article_name.value,
+                    articleBody: article_body.value,
+                    date: current_date.value
+                };
+                const xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if(this.readyState === XMLHttpRequest.DONE){
+                        if(this.status === 200){
+                            output.innerText = `Post sucessful: \n ${this.responseText}`;
+                        } else {
+                            output.innerText = `Error: ${this.statusText}`;
+                        }
+                    }
+    
+                }
+                xhr.open("POST", "https://httpbin.org/post");
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.send(JSON.stringify(json_obj));
+            });
+            get_button.addEventListener('click', () => {
+                const xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if(this.readyState === XMLHttpRequest.DONE){
+                        if(this.status === 200){
+                            output.innerText =  `Get sucessful: \n ${this.responseText}`;
+                        } else {
+                            output.innerText = `Error: ${this.statusText}`;
+                        }
+                    }
+    
+                }
+                xhr.open("GET", `https://httpbin.org/get?id=${id.value}`);
+                xhr.send();
+            });
+            put_button.addEventListener('click', () => {
+                current_date.value = new Date();
+                let json_obj = {
+                    articleTitle: article_name.value,
+                    articleBody: article_body.value,
+                    date: current_date.value
+                };
+                const xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if(this.readyState === XMLHttpRequest.DONE){
+                        if(this.status === 200){
+                            output.innerText = `Put sucessful: \n ${this.responseText}`;
+                        } else {
+                            output.innerText = `Error: ${this.statusText}`;
+                        }
+                    }
+    
+                }
+                xhr.open("PUT", "https://httpbin.org/put");
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.send(JSON.stringify(json_obj));
+            });
+            delete_button.addEventListener('click', () => {
+                const xhr = new XMLHttpRequest();
+                let json_obj = {
+                    id: id.value
+                };
+                xhr.onreadystatechange = function() {
+                    if(this.readyState === XMLHttpRequest.DONE){
+                        if(this.status === 200){
+                            output.innerText =  `Delete sucessful: \n ${this.responseText}`;
+                        } else {
+                            output.innerText = `Error: ${this.statusText}`;
+                        }
+                    }
+    
+                }
+                xhr.open("DELETE", `https://httpbin.org/delete?id=${id.value}`);
+                xhr.send();
+            });
+        </script>
+    </body>
+</html>
+
+
