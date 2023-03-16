@@ -20,8 +20,10 @@
         <button id="getBtn">GET</button>
         <button id="deleteBtn">DELETE</button>
         <button id="putBtn">PUT</button>
+        <br>
         <output id="result"></output>
-        <script>
+        <script type="module">
+            import {get, post, put, delete_req} from './methodtest.js';
             let post_button = document.getElementById("postBtn");
             let get_button = document.getElementById("getBtn");
             let delete_button = document.getElementById("deleteBtn");
@@ -38,35 +40,11 @@
                     articleBody: article_body.value,
                     date: current_date.value
                 };
-                const xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function() {
-                    if(this.readyState === XMLHttpRequest.DONE){
-                        if(this.status === 200){
-                            output.innerText = `Post sucessful: \n ${this.responseText}`;
-                        } else {
-                            output.innerText = `Error: ${this.statusText}`;
-                        }
-                    }
-    
-                }
-                xhr.open("POST", "https://httpbin.org/post");
-                xhr.setRequestHeader("Content-Type", "application/json");
-                xhr.send(JSON.stringify(json_obj));
+                let json_stringify = JSON.stringify(json_obj);
+                post(output, json_stringify);
             });
             get_button.addEventListener('click', () => {
-                const xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function() {
-                    if(this.readyState === XMLHttpRequest.DONE){
-                        if(this.status === 200){
-                            output.innerText =  `Get sucessful: \n ${this.responseText}`;
-                        } else {
-                            output.innerText = `Error: ${this.statusText}`;
-                        }
-                    }
-    
-                }
-                xhr.open("GET", `https://httpbin.org/get?id=${id.value}`);
-                xhr.send();
+                get(output, id.value);
             });
             put_button.addEventListener('click', () => {
                 current_date.value = new Date();
@@ -75,38 +53,15 @@
                     articleBody: article_body.value,
                     date: current_date.value
                 };
-                const xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function() {
-                    if(this.readyState === XMLHttpRequest.DONE){
-                        if(this.status === 200){
-                            output.innerText = `Put sucessful: \n ${this.responseText}`;
-                        } else {
-                            output.innerText = `Error: ${this.statusText}`;
-                        }
-                    }
-    
-                }
-                xhr.open("PUT", "https://httpbin.org/put");
-                xhr.setRequestHeader("Content-Type", "application/json");
-                xhr.send(JSON.stringify(json_obj));
+                let json_stringify = JSON.stringify(json_obj);
+                put(output, json_stringify);
             });
             delete_button.addEventListener('click', () => {
                 const xhr = new XMLHttpRequest();
                 let json_obj = {
                     id: id.value
                 };
-                xhr.onreadystatechange = function() {
-                    if(this.readyState === XMLHttpRequest.DONE){
-                        if(this.status === 200){
-                            output.innerText =  `Delete sucessful: \n ${this.responseText}`;
-                        } else {
-                            output.innerText = `Error: ${this.statusText}`;
-                        }
-                    }
-    
-                }
-                xhr.open("DELETE", `https://httpbin.org/delete?id=${id.value}`);
-                xhr.send();
+                delete_req(output, id.value);
             });
         </script>
     </body>
